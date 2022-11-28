@@ -1,10 +1,10 @@
 TITLE:   GCN CIRCULAR
-NUMBER:  21523
+NUMBER:  ${GCN_ID}
 SUBJECT: LIGO/Virgo G297595: Pierre Auger Observatory neutrino follow-up
-DATE:    17/08/17 21:17:44 GMT
+DATE:    ${time} GMT
 FROM:    Jaime Alvarez-Muniz at Pierre Auger Observatory  <jaime.alvarezmuniz@gmail.com>
 
-J. Alvarez-Muniz, F. Pedreira, E. Zas (Univ. Santiago de Compostela, Spain),
+J. Alvarez-Muniz, Y. Lema-Capeans, E. Zas (Univ. Santiago de Compostela, Spain),
 K. H. Kampert & M. Schimp (Bergische Universitat, Wuppertal, Germany)
 on behalf of the Pierre Auger Collaboration.
 
@@ -17,14 +17,15 @@ the Pierre Auger Observatory in a [-500,500] second interval about
 the LIGO-Virgo trigger ${name_trigger} as well as 1 day after it.
 
 NO events survived the cuts applied to reject the background due to UHE
-Cosmic Rays i.e. NO neutrino candidates were detected.
+Cosmic Rays i.e. NO neutrino candidates were detected. The average one day flux limit of
+UHE neutrinos (for our detector in normal operation) is  ${limit} GeV·cm^(-2)·s^(-1)
 
 The field of view (fov) where the SD of Auger is sensitive to UHE neutrinos
 (corresponding to inclined directions with respect to the vertical relative
 to the ground) was ${fov_prob_first} % coincident with the updated LIGO 90% localization
 region at the time T0 of the merger alert. The LIGO 90% localization region
 maximally overlapped with the Auger fov for the first time at ~ T0+${t_in} hours (i.e.
-${t_in} hr after the merger) and remains fully in the Auger fov until ~ T0+${t_fin} hours.
+${t_in} hr after the merger) and remains fully in the Auger fov until ~ T0+${t_fin} hours. 
 
 The Pierre Auger Observatory is an UHE Cosmic Ray detector
 located in the Mendoza Province in Argentina. It consists of an array
@@ -32,4 +33,5 @@ of Water Cherenkov detectors spread over a total surface of 3000 km^2
 arranged in a triangular grid of 1.5 km side as well as Fluorescence
 telescopes and other systems (see 10.1016/j.nima.2015.06.058
 for more information). For neutrino searches from GW events with Auger, please refer to:
-https://journals.aps.org/prd/pdf/10.1103/PhysRevD.94.122007
+https://iopscience.iop.org/article/10.1088/1475-7516/2019/11/004
+https://iopscience.iop.org/article/10.1088/1475-7516/2019/10/022

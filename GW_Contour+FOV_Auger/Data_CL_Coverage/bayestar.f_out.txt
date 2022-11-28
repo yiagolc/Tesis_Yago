@@ -1,0 +1,1104 @@
+Total number of pixels in map: 12582912
+Area per pixel (before eventual resolution decrease): 0.0032784908016061202 deg^2
+Number of pixels in the confidence region: 286464
+Solid angle of the confidence region:      939.1695889912957 deg^2
+
+
+2019-05-17 05:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.11934600341080319
+Fraction of 90 % confidence region in the DGL FoV:    0.22889438114387847
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.0064236302591494715
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 1.809864408354065e-08
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.12576965176859675
+Fraction of 90 % confidence region in the total FoV:    0.22889438114387847
+
+
+2019-05-17 06:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.08477814701127703
+Fraction of 90 % confidence region in the DGL FoV:    0.16674695598748884
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.0013117744267798395
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 1.6896443744072138e-09
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.08608992312770124
+Fraction of 90 % confidence region in the total FoV:    0.16674695598748884
+
+
+2019-05-17 06:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.055302502278690865
+Fraction of 90 % confidence region in the DGL FoV:    0.10409684986595175
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 8.869870413441889e-05
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 1.3367582563350691e-09
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.05539120231958354
+Fraction of 90 % confidence region in the total FoV:    0.10409684986595175
+
+
+2019-05-17 06:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.0337262565684069
+Fraction of 90 % confidence region in the DGL FoV:    0.045859165549597854
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 1.378243143832721e-06
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 8.765523891523775e-10
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.03372763568810312
+Fraction of 90 % confidence region in the total FoV:    0.045859165549597854
+
+
+2019-05-17 07:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.019485027291526198
+Fraction of 90 % confidence region in the DGL FoV:    0.022753295352993745
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 1.3338087665232242e-08
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 5.192773728802045e-10
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.019485041148891238
+Fraction of 90 % confidence region in the total FoV:    0.022753295352993745
+
+
+2019-05-17 07:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.011804238445562377
+Fraction of 90 % confidence region in the DGL FoV:    0.017457691018766756
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 2.8319560276356665e-09
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 3.899731026404518e-10
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.011804241667491507
+Fraction of 90 % confidence region in the total FoV:    0.017457691018766756
+
+
+2019-05-17 07:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.00870627748701221
+Fraction of 90 % confidence region in the DGL FoV:    0.013607294459338694
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 1.8518233769074952e-09
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 3.754055132375379e-10
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.008706279714241101
+Fraction of 90 % confidence region in the total FoV:    0.013607294459338694
+
+
+2019-05-17 08:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.009959881613198333
+Fraction of 90 % confidence region in the DGL FoV:    0.013331518096514745
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 1.883285912860746e-09
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 4.191112108304607e-10
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.009959883915595456
+Fraction of 90 % confidence region in the total FoV:    0.013331518096514745
+
+
+2019-05-17 08:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.049140956015571925
+Fraction of 90 % confidence region in the DGL FoV:    0.06057654714030384
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 3.5440753260665855e-09
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 5.681924973456553e-10
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.04914096012783975
+Fraction of 90 % confidence region in the total FoV:    0.06057654714030384
+
+
+2019-05-17 08:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.169672064054586
+Fraction of 90 % confidence region in the DGL FoV:    0.1642510053619303
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 5.89297717389433e-08
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 1.1129400031666088e-09
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.16967212409729773
+Fraction of 90 % confidence region in the total FoV:    0.1642510053619303
+
+
+2019-05-17 09:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.23993768449237107
+Fraction of 90 % confidence region in the DGL FoV:    0.27001996760500446
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 1.8013109322381255e-05
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 2.760875842932905e-09
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.23995570036256927
+Fraction of 90 % confidence region in the total FoV:    0.27001996760500446
+
+
+2019-05-17 09:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.2721803721098551
+Fraction of 90 % confidence region in the DGL FoV:    0.3137706657730116
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.002424563645852839
+Fraction of 90 % confidence region in the DGH FoV:    0.0028904155495978554
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 5.723844937619998e-09
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.2746049414795529
+Fraction of 90 % confidence region in the total FoV:    0.31666108132260945
+
+
+2019-05-17 09:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.47533561358772436
+Fraction of 90 % confidence region in the DGL FoV:    0.3413099028150134
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.05955401658163176
+Fraction of 90 % confidence region in the DGH FoV:    0.06118395330652368
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 9.315239600770351e-09
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.5348896394845957
+Fraction of 90 % confidence region in the total FoV:    0.4024938561215371
+
+
+2019-05-17 10:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.44202180390183426
+Fraction of 90 % confidence region in the DGL FoV:    0.2960825793118856
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.18154007469782113
+Fraction of 90 % confidence region in the DGH FoV:    0.16579046581769438
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 1.4893554251901918e-07
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.623562027535198
+Fraction of 90 % confidence region in the total FoV:    0.46187304512957994
+
+
+2019-05-17 10:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.4157949123677226
+Fraction of 90 % confidence region in the DGL FoV:    0.23370126787310097
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.23024334624471582
+Fraction of 90 % confidence region in the DGH FoV:    0.26451142202859695
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 6.333868097755115e-05
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.646101597293416
+Fraction of 90 % confidence region in the total FoV:    0.4982126899016979
+
+
+2019-05-17 10:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.40357363805202345
+Fraction of 90 % confidence region in the DGL FoV:    0.22978454535299375
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.23670570247994224
+Fraction of 90 % confidence region in the DGH FoV:    0.2534838583556747
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.008263398787106586
+Fraction of 90 % confidence region in the ES FoV:    0.014944286193029491
+
+Total probability for the event to be in the total FoV: 0.6485427393190722
+Fraction of 90 % confidence region in the total FoV:    0.498212689901698
+
+
+2019-05-17 11:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.36577873678092027
+Fraction of 90 % confidence region in the DGL FoV:    0.18124790549597855
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.18316592655819267
+Fraction of 90 % confidence region in the DGH FoV:    0.2294354613494191
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.096952532138057
+Fraction of 90 % confidence region in the ES FoV:    0.08236287980339589
+
+Total probability for the event to be in the total FoV: 0.64589719547717
+Fraction of 90 % confidence region in the total FoV:    0.49304624664879354
+
+
+2019-05-17 11:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.1505399243108042
+Fraction of 90 % confidence region in the DGL FoV:    0.11471598525469169
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.30103966361884527
+Fraction of 90 % confidence region in the DGH FoV:    0.19398598078641643
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.12798314715775985
+Fraction of 90 % confidence region in the ES FoV:    0.12203976764968721
+
+Total probability for the event to be in the total FoV: 0.5795627350874093
+Fraction of 90 % confidence region in the total FoV:    0.4307417336907953
+
+
+2019-05-17 11:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.035999124805853266
+Fraction of 90 % confidence region in the DGL FoV:    0.0463688281948168
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.38181953687263304
+Fraction of 90 % confidence region in the DGH FoV:    0.1853636058981233
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.05185773696154803
+Fraction of 90 % confidence region in the ES FoV:    0.10792979222520108
+
+Total probability for the event to be in the total FoV: 0.46967639864003435
+Fraction of 90 % confidence region in the total FoV:    0.3396622263181412
+
+
+2019-05-17 12:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.00656272795293147
+Fraction of 90 % confidence region in the DGL FoV:    0.0042448614834673815
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.40137735812422837
+Fraction of 90 % confidence region in the DGH FoV:    0.22743521000893654
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.016681693381078215
+Fraction of 90 % confidence region in the ES FoV:    0.010839058310991957
+
+Total probability for the event to be in the total FoV: 0.42462177945823804
+Fraction of 90 % confidence region in the total FoV:    0.2425191298033959
+
+
+2019-05-17 12:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.0025364089170039194
+Fraction of 90 % confidence region in the DGL FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.3992176432723002
+Fraction of 90 % confidence region in the DGH FoV:    0.22333347296693476
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.009550642946440152
+Fraction of 90 % confidence region in the ES FoV:    0.008346598525469168
+
+Total probability for the event to be in the total FoV: 0.41130469513574425
+Fraction of 90 % confidence region in the total FoV:    0.23168007149240394
+
+
+2019-05-17 12:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.0013110160073230139
+Fraction of 90 % confidence region in the DGL FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.38474639260181975
+Fraction of 90 % confidence region in the DGH FoV:    0.19579074508489722
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.01993779973448028
+Fraction of 90 % confidence region in the ES FoV:    0.0358893264075067
+
+Total probability for the event to be in the total FoV: 0.40599520834362307
+Fraction of 90 % confidence region in the total FoV:    0.2316800714924039
+
+
+2019-05-17 13:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.001014309107098181
+Fraction of 90 % confidence region in the DGL FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.3273539475132975
+Fraction of 90 % confidence region in the DGH FoV:    0.14960344057193922
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.07203195906296325
+Fraction of 90 % confidence region in the ES FoV:    0.07087801608579089
+
+Total probability for the event to be in the total FoV: 0.40040021568335893
+Fraction of 90 % confidence region in the total FoV:    0.2204814566577301
+
+
+2019-05-17 13:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.0012006504971607374
+Fraction of 90 % confidence region in the DGL FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.22668477054472264
+Fraction of 90 % confidence region in the DGH FoV:    0.10765401586237712
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.1543237557799516
+Fraction of 90 % confidence region in the ES FoV:    0.07973776809651474
+
+Total probability for the event to be in the total FoV: 0.382209176821835
+Fraction of 90 % confidence region in the total FoV:    0.18739178395889186
+
+
+2019-05-17 13:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.0025822608555932285
+Fraction of 90 % confidence region in the DGL FoV:    0.00043635500446827523
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.1245072657826119
+Fraction of 90 % confidence region in the DGH FoV:    0.07586991733690795
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.220284260448175
+Fraction of 90 % confidence region in the ES FoV:    0.07272117962466489
+
+Total probability for the event to be in the total FoV: 0.3473737870863801
+Fraction of 90 % confidence region in the total FoV:    0.1490274519660411
+
+
+2019-05-17 14:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.006173161233369238
+Fraction of 90 % confidence region in the DGL FoV:    0.01016532618409294
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.058939199933358784
+Fraction of 90 % confidence region in the DGH FoV:    0.049859668230563
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.23850512715685737
+Fraction of 90 % confidence region in the ES FoV:    0.07783526027703307
+
+Total probability for the event to be in the total FoV: 0.30361748832358537
+Fraction of 90 % confidence region in the total FoV:    0.137860254691689
+
+
+2019-05-17 14:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.011798770904551826
+Fraction of 90 % confidence region in the DGL FoV:    0.022788203753351208
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.027036900803175126
+Fraction of 90 % confidence region in the DGH FoV:    0.03154323056300268
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.20961234743325494
+Fraction of 90 % confidence region in the ES FoV:    0.07259550938337801
+
+Total probability for the event to be in the total FoV: 0.24844801914098189
+Fraction of 90 % confidence region in the total FoV:    0.1269269436997319
+
+
+2019-05-17 14:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.018942253192120857
+Fraction of 90 % confidence region in the DGL FoV:    0.0383294235924933
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.013288283707589721
+Fraction of 90 % confidence region in the DGH FoV:    0.019077440795352993
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.16562425877148204
+Fraction of 90 % confidence region in the ES FoV:    0.06641672252010723
+
+Total probability for the event to be in the total FoV: 0.19785479567119263
+Fraction of 90 % confidence region in the total FoV:    0.12382358690795353
+
+
+2019-05-17 15:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.027300195566580508
+Fraction of 90 % confidence region in the DGL FoV:    0.05443615951742627
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.007602232535891235
+Fraction of 90 % confidence region in the DGH FoV:    0.011058981233243968
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.12749827248999787
+Fraction of 90 % confidence region in the ES FoV:    0.059606093610366395
+
+Total probability for the event to be in the total FoV: 0.1624007005924696
+Fraction of 90 % confidence region in the total FoV:    0.12510123436103665
+
+
+2019-05-17 15:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.03698915913514981
+Fraction of 90 % confidence region in the DGL FoV:    0.07146796805183199
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.0052328937648856285
+Fraction of 90 % confidence region in the DGH FoV:    0.00618576854334227
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.1014233465325099
+Fraction of 90 % confidence region in the ES FoV:    0.054628155719392314
+
+Total probability for the event to be in the total FoV: 0.14364539943254534
+Fraction of 90 % confidence region in the total FoV:    0.13228189231456658
+
+
+2019-05-17 15:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.04904133460819065
+Fraction of 90 % confidence region in the DGL FoV:    0.09268878462913316
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.004384600605778356
+Fraction of 90 % confidence region in the DGH FoV:    0.00418202636282395
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.08675858757668203
+Fraction of 90 % confidence region in the ES FoV:    0.05068350647899911
+
+Total probability for the event to be in the total FoV: 0.14018452279065102
+Fraction of 90 % confidence region in the total FoV:    0.1475543174709562
+
+
+2019-05-17 16:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.0658755871882418
+Fraction of 90 % confidence region in the DGL FoV:    0.1150720509383378
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.004469115454411685
+Fraction of 90 % confidence region in the DGH FoV:    0.003916722520107239
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.08133980744537116
+Fraction of 90 % confidence region in the ES FoV:    0.04824340929401251
+
+Total probability for the event to be in the total FoV: 0.15168451008802464
+Fraction of 90 % confidence region in the total FoV:    0.16723218275245755
+
+
+2019-05-17 16:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.09554664569692722
+Fraction of 90 % confidence region in the DGL FoV:    0.17905565795352993
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.0055253513361142
+Fraction of 90 % confidence region in the DGH FoV:    0.0050058646112600535
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.08414780376155379
+Fraction of 90 % confidence region in the ES FoV:    0.047314845844504023
+
+Total probability for the event to be in the total FoV: 0.1852198007945952
+Fraction of 90 % confidence region in the total FoV:    0.231376368409294
+
+
+2019-05-17 16:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.15720670849962215
+Fraction of 90 % confidence region in the DGL FoV:    0.2990672475424486
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.008222404609534538
+Fraction of 90 % confidence region in the DGH FoV:    0.00771126563896336
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.09444107032569854
+Fraction of 90 % confidence region in the ES FoV:    0.04730786416443253
+
+Total probability for the event to be in the total FoV: 0.25987018343485524
+Fraction of 90 % confidence region in the total FoV:    0.35408637734584447
+
+
+2019-05-17 17:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.24779925865790783
+Fraction of 90 % confidence region in the DGL FoV:    0.39601136617515637
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.01416363858858237
+Fraction of 90 % confidence region in the DGH FoV:    0.011963108802502235
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.1122928482011505
+Fraction of 90 % confidence region in the ES FoV:    0.04799206881143878
+
+Total probability for the event to be in the total FoV: 0.3742557454476407
+Fraction of 90 % confidence region in the total FoV:    0.4559665437890974
+
+
+2019-05-17 17:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.3102065821557241
+Fraction of 90 % confidence region in the DGL FoV:    0.4609584450402145
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.026463260338098763
+Fraction of 90 % confidence region in the DGH FoV:    0.01852937890974084
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.1367901196839537
+Fraction of 90 % confidence region in the ES FoV:    0.049088192582663094
+
+Total probability for the event to be in the total FoV: 0.4734599621777765
+Fraction of 90 % confidence region in the total FoV:    0.5285760165326184
+
+
+2019-05-17 17:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.3219717372370782
+Fraction of 90 % confidence region in the DGL FoV:    0.4626480116175156
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.05047757913388112
+Fraction of 90 % confidence region in the DGH FoV:    0.059023123324396784
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.16407466381535749
+Fraction of 90 % confidence region in the ES FoV:    0.05048103775692583
+
+Total probability for the event to be in the total FoV: 0.5365239801863169
+Fraction of 90 % confidence region in the total FoV:    0.5721521726988382
+
+
+2019-05-17 18:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.3071117553732956
+Fraction of 90 % confidence region in the DGL FoV:    0.42182612823949955
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.09374020649790327
+Fraction of 90 % confidence region in the DGH FoV:    0.11748771224307418
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.18510769144707667
+Fraction of 90 % confidence region in the ES FoV:    0.05191228217158177
+
+Total probability for the event to be in the total FoV: 0.5859596533182756
+Fraction of 90 % confidence region in the total FoV:    0.5912261226541554
+
+
+2019-05-17 18:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.27920148889827245
+Fraction of 90 % confidence region in the DGL FoV:    0.3552523179177837
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.1633875799338297
+Fraction of 90 % confidence region in the DGH FoV:    0.19728831546023234
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.18876017393188976
+Fraction of 90 % confidence region in the ES FoV:    0.05339239834673816
+
+Total probability for the event to be in the total FoV: 0.631349242763992
+Fraction of 90 % confidence region in the total FoV:    0.6059330317247542
+
+
+2019-05-17 18:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.23957089729148584
+Fraction of 90 % confidence region in the DGL FoV:    0.2975103328865058
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.2616626015215694
+Fraction of 90 % confidence region in the DGH FoV:    0.27100089365504915
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.1667468942572515
+Fraction of 90 % confidence region in the ES FoV:    0.05512036416443253
+
+Total probability for the event to be in the total FoV: 0.6679803930703068
+Fraction of 90 % confidence region in the total FoV:    0.6236315907059875
+
+
+2019-05-17 19:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.1926085466222619
+Fraction of 90 % confidence region in the DGL FoV:    0.24947986483467383
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.37407676037122206
+Fraction of 90 % confidence region in the DGH FoV:    0.32197763069705093
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.12557546817164442
+Fraction of 90 % confidence region in the ES FoV:    0.07326575067024128
+
+Total probability for the event to be in the total FoV: 0.6922607751651284
+Fraction of 90 % confidence region in the total FoV:    0.6447232462019661
+
+
+2019-05-17 19:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.1476047159644847
+Fraction of 90 % confidence region in the DGL FoV:    0.2119498436103664
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.47403328433943603
+Fraction of 90 % confidence region in the DGH FoV:    0.35225368632707776
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.08275769902496408
+Fraction of 90 % confidence region in the ES FoV:    0.09806118744414656
+
+Total probability for the event to be in the total FoV: 0.7043956993288849
+Fraction of 90 % confidence region in the total FoV:    0.6622647173815908
+
+
+2019-05-17 19:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.11603777967131379
+Fraction of 90 % confidence region in the DGL FoV:    0.18449438672922253
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.5386629073454623
+Fraction of 90 % confidence region in the DGH FoV:    0.3766686215370867
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.052786084350975405
+Fraction of 90 % confidence region in the ES FoV:    0.10189762064343164
+
+Total probability for the event to be in the total FoV: 0.7074867713677515
+Fraction of 90 % confidence region in the total FoV:    0.6630606289097409
+
+
+2019-05-17 20:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.10318958411937405
+Fraction of 90 % confidence region in the DGL FoV:    0.1695396280160858
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.5637976608100584
+Fraction of 90 % confidence region in the DGH FoV:    0.39350145218945487
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.03824582654768997
+Fraction of 90 % confidence region in the ES FoV:    0.08686257260947275
+
+Total probability for the event to be in the total FoV: 0.7052330714771224
+Fraction of 90 % confidence region in the total FoV:    0.6499036528150134
+
+
+2019-05-17 20:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.11571964951342399
+Fraction of 90 % confidence region in the DGL FoV:    0.17195528932082216
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.550793662416001
+Fraction of 90 % confidence region in the DGH FoV:    0.39120098860589814
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.034211584167995655
+Fraction of 90 % confidence region in the ES FoV:    0.06446185210008937
+
+Total probability for the event to be in the total FoV: 0.7007248960974206
+Fraction of 90 % confidence region in the total FoV:    0.6276181300268097
+
+
+2019-05-17 20:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.17818513697061192
+Fraction of 90 % confidence region in the DGL FoV:    0.1906731735924933
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.4823144046020396
+Fraction of 90 % confidence region in the DGH FoV:    0.359183003798034
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.03586990491748197
+Fraction of 90 % confidence region in the ES FoV:    0.0568937109025916
+
+Total probability for the event to be in the total FoV: 0.6963694464901335
+Fraction of 90 % confidence region in the total FoV:    0.6067498882931188
+
+
+2019-05-17 21:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.29311272659514925
+Fraction of 90 % confidence region in the DGL FoV:    0.22105046358355673
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.3603558025515666
+Fraction of 90 % confidence region in the DGH FoV:    0.30674011394101874
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.04096386105393939
+Fraction of 90 % confidence region in the ES FoV:    0.07863466264521894
+
+Total probability for the event to be in the total FoV: 0.6944323902006552
+Fraction of 90 % confidence region in the total FoV:    0.6064252401697944
+
+
+2019-05-17 21:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.3964317840989347
+Fraction of 90 % confidence region in the DGL FoV:    0.2588178619302949
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.25180328472304275
+Fraction of 90 % confidence region in the DGH FoV:    0.2602316521447721
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.049878012691787904
+Fraction of 90 % confidence region in the ES FoV:    0.10299723525469169
+
+Total probability for the event to be in the total FoV: 0.6981130815137654
+Fraction of 90 % confidence region in the total FoV:    0.6220467493297588
+
+
+2019-05-17 21:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.44877107216148204
+Fraction of 90 % confidence region in the DGL FoV:    0.303092186103664
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.19879446518234833
+Fraction of 90 % confidence region in the DGH FoV:    0.23159629133154602
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.06740769774731431
+Fraction of 90 % confidence region in the ES FoV:    0.11403876228775693
+
+Total probability for the event to be in the total FoV: 0.7149732350911446
+Fraction of 90 % confidence region in the total FoV:    0.648727239722967
+
+
+2019-05-17 22:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.4645172235893232
+Fraction of 90 % confidence region in the DGL FoV:    0.3391944537533512
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.1887342876432787
+Fraction of 90 % confidence region in the DGH FoV:    0.2180832495531725
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.10432893216554405
+Fraction of 90 % confidence region in the ES FoV:    0.11790661304736372
+
+Total probability for the event to be in the total FoV: 0.7575804433981459
+Fraction of 90 % confidence region in the total FoV:    0.6751843163538874
+
+
+2019-05-17 22:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.42409235272686846
+Fraction of 90 % confidence region in the DGL FoV:    0.32747221291331546
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.2160322862515514
+Fraction of 90 % confidence region in the DGH FoV:    0.2433359863717605
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.1376054640582978
+Fraction of 90 % confidence region in the ES FoV:    0.11761687332439678
+
+Total probability for the event to be in the total FoV: 0.7777301030367176
+Fraction of 90 % confidence region in the total FoV:    0.6884250726094727
+
+
+2019-05-17 22:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.28711147076573884
+Fraction of 90 % confidence region in the DGL FoV:    0.3062583780160858
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.27755200599524715
+Fraction of 90 % confidence region in the DGH FoV:    0.26999553172475427
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.0938955369013436
+Fraction of 90 % confidence region in the ES FoV:    0.10486483467381591
+
+Total probability for the event to be in the total FoV: 0.6585590136623295
+Fraction of 90 % confidence region in the total FoV:    0.681118744414656
+
+
+2019-05-17 23:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.1783511716466914
+Fraction of 90 % confidence region in the DGL FoV:    0.2970041610813226
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.303768465550805
+Fraction of 90 % confidence region in the DGH FoV:    0.26739485589812334
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.05401702861518231
+Fraction of 90 % confidence region in the ES FoV:    0.06747095621090259
+
+Total probability for the event to be in the total FoV: 0.5361366658126787
+Fraction of 90 % confidence region in the total FoV:    0.6318699731903485
+
+
+2019-05-17 23:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.16320986322336364
+Fraction of 90 % confidence region in the DGL FoV:    0.2929233690795353
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.2805859294995381
+Fraction of 90 % confidence region in the DGH FoV:    0.22645777479892762
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.05001549933742336
+Fraction of 90 % confidence region in the ES FoV:    0.05712410634495085
+
+Total probability for the event to be in the total FoV: 0.49381129206032504
+Fraction of 90 % confidence region in the total FoV:    0.5765052502234137
+
+
+2019-05-17 23:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.20990993516637313
+Fraction of 90 % confidence region in the DGL FoV:    0.3226932529043789
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.22440360258595488
+Fraction of 90 % confidence region in the DGH FoV:    0.17504119191242182
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.049454134613586165
+Fraction of 90 % confidence region in the ES FoV:    0.058035215594280605
+
+Total probability for the event to be in the total FoV: 0.48376767236591417
+Fraction of 90 % confidence region in the total FoV:    0.5557696604110813
+
+
+2019-05-18 00:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.27513572439799067
+Fraction of 90 % confidence region in the DGL FoV:    0.3522432138069705
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.15708915785447744
+Fraction of 90 % confidence region in the DGH FoV:    0.12872821715817695
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.05030574657424837
+Fraction of 90 % confidence region in the ES FoV:    0.07973078641644325
+
+Total probability for the event to be in the total FoV: 0.4825306288267165
+Fraction of 90 % confidence region in the total FoV:    0.5607022173815907
+
+
+2019-05-18 00:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.28347629239157407
+Fraction of 90 % confidence region in the DGL FoV:    0.34077929512958
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.14417973605137122
+Fraction of 90 % confidence region in the DGH FoV:    0.11988591934763182
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.046113989293012504
+Fraction of 90 % confidence region in the ES FoV:    0.07846012064343164
+
+Total probability for the event to be in the total FoV: 0.4737700177359578
+Fraction of 90 % confidence region in the total FoV:    0.5391253351206434
+
+
+2019-05-18 00:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.24669974341612827
+Fraction of 90 % confidence region in the DGL FoV:    0.2838995475871314
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.15746395419995338
+Fraction of 90 % confidence region in the DGH FoV:    0.1526614164432529
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.03490946787394416
+Fraction of 90 % confidence region in the ES FoV:    0.05182152033065237
+
+Total probability for the event to be in the total FoV: 0.4390731654900258
+Fraction of 90 % confidence region in the total FoV:    0.4883824843610366
+
+
+2019-05-18 01:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.17518911500732978
+Fraction of 90 % confidence region in the DGL FoV:    0.22139605674709562
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.16613693700581547
+Fraction of 90 % confidence region in the DGH FoV:    0.16605926050044684
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.030985089144877933
+Fraction of 90 % confidence region in the ES FoV:    0.04836907953529938
+
+Total probability for the event to be in the total FoV: 0.37231114115802316
+Fraction of 90 % confidence region in the total FoV:    0.43582439678284185
+
+
+2019-05-18 01:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.10877901759907009
+Fraction of 90 % confidence region in the DGL FoV:    0.1654134550938338
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.17228408422730845
+Fraction of 90 % confidence region in the DGH FoV:    0.17637469280607684
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.027869246266544898
+Fraction of 90 % confidence region in the ES FoV:    0.04733230004468275
+
+Total probability for the event to be in the total FoV: 0.30893234809292347
+Fraction of 90 % confidence region in the total FoV:    0.3891204479445934
+
+
+2019-05-18 01:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.08855870926373567
+Fraction of 90 % confidence region in the DGL FoV:    0.1419550100536193
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.17445601850969414
+Fraction of 90 % confidence region in the DGH FoV:    0.1703111036639857
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.025590419694081882
+Fraction of 90 % confidence region in the ES FoV:    0.04641071827524575
+
+Total probability for the event to be in the total FoV: 0.2886051474675117
+Fraction of 90 % confidence region in the total FoV:    0.3586768319928507
+
+
+2019-05-18 02:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.08450711205859723
+Fraction of 90 % confidence region in the DGL FoV:    0.14527130808757818
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.17548318599095633
+Fraction of 90 % confidence region in the DGH FoV:    0.1652633489722967
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.024591170421650294
+Fraction of 90 % confidence region in the ES FoV:    0.046731875558534405
+
+Total probability for the event to be in the total FoV: 0.2845814684712038
+Fraction of 90 % confidence region in the total FoV:    0.3572665326184093
+
+
+2019-05-18 02:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.0787979156429509
+Fraction of 90 % confidence region in the DGL FoV:    0.1363417392761394
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.18026615568629697
+Fraction of 90 % confidence region in the DGH FoV:    0.17612684316353888
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.02320561661720131
+Fraction of 90 % confidence region in the ES FoV:    0.04758364052725648
+
+Total probability for the event to be in the total FoV: 0.2822696879464492
+Fraction of 90 % confidence region in the total FoV:    0.3600522229669348
+
+
+2019-05-18 02:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.0842105552992893
+Fraction of 90 % confidence region in the DGL FoV:    0.13742739052725647
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.17395863894362767
+Fraction of 90 % confidence region in the DGH FoV:    0.17854250446827524
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.023747123096310125
+Fraction of 90 % confidence region in the ES FoV:    0.05204493409294012
+
+Total probability for the event to be in the total FoV: 0.28191631733922706
+Fraction of 90 % confidence region in the total FoV:    0.3680148290884719
+
+
+2019-05-18 03:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.11140612832344157
+Fraction of 90 % confidence region in the DGL FoV:    0.1312555853440572
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.14362158215879586
+Fraction of 90 % confidence region in the DGH FoV:    0.176922754691689
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.0350707851177299
+Fraction of 90 % confidence region in the ES FoV:    0.07469699508489723
+
+Total probability for the event to be in the total FoV: 0.29009849559996737
+Fraction of 90 % confidence region in the total FoV:    0.3828753351206434
+
+
+2019-05-18 03:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.1375634417137148
+Fraction of 90 % confidence region in the DGL FoV:    0.12594601764968721
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.12003408015283003
+Fraction of 90 % confidence region in the DGH FoV:    0.19149352100089365
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.02291972868101369
+Fraction of 90 % confidence region in the ES FoV:    0.05478873436103664
+
+Total probability for the event to be in the total FoV: 0.2805172505475585
+Fraction of 90 % confidence region in the total FoV:    0.3722282730116175
+
+
+2019-05-18 03:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.15368601871226817
+Fraction of 90 % confidence region in the DGL FoV:    0.12814524687220732
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.1049948708450985
+Fraction of 90 % confidence region in the DGH FoV:    0.2006918844950849
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.0112422435957681
+Fraction of 90 % confidence region in the ES FoV:    0.028684232573726542
+
+Total probability for the event to be in the total FoV: 0.26992313315313476
+Fraction of 90 % confidence region in the total FoV:    0.35752136394101874
+
+
+2019-05-18 04:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.16628666790108915
+Fraction of 90 % confidence region in the DGL FoV:    0.1500921581769437
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.09172655438646382
+Fraction of 90 % confidence region in the DGH FoV:    0.19047070487042
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.007926951368893131
+Fraction of 90 % confidence region in the ES FoV:    0.005878574620196604
+
+Total probability for the event to be in the total FoV: 0.2659401736564461
+Fraction of 90 % confidence region in the total FoV:    0.3464414376675603
+
+
+2019-05-18 04:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.18281881752011941
+Fraction of 90 % confidence region in the DGL FoV:    0.18007498324396784
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.07750746156140725
+Fraction of 90 % confidence region in the DGH FoV:    0.16241831434316353
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.004558779127693191
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.26488505820921987
+Fraction of 90 % confidence region in the total FoV:    0.3424932975871314
+
+
+2019-05-18 04:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.20284281847893137
+Fraction of 90 % confidence region in the DGL FoV:    0.22471933646112602
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.057260013999907496
+Fraction of 90 % confidence region in the DGH FoV:    0.11498827077747989
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.0013473178548129416
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.2614501503336518
+Fraction of 90 % confidence region in the total FoV:    0.33970760723860594
+
+
+2019-05-18 05:11:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.20585658442447674
+Fraction of 90 % confidence region in the DGL FoV:    0.25475103328865056
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.030464895169109735
+Fraction of 90 % confidence region in the DGH FoV:    0.05601052837354781
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 0.00011646880519762942
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.23643794839878413
+Fraction of 90 % confidence region in the total FoV:    0.31076156166219837
+
+
+2019-05-18 05:31:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.1589347380408309
+Fraction of 90 % confidence region in the DGL FoV:    0.2581825290437891
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.013881970304299595
+Fraction of 90 % confidence region in the DGH FoV:    0.011317303395889187
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 1.5230818573435534e-06
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.17281823142698782
+Fraction of 90 % confidence region in the total FoV:    0.2694998324396783
+
+
+2019-05-18 05:51:01.834880
+
+Total probability (sum of prob. pixels) for the event to be in the DGL FoV: 0.11179759735127694
+Fraction of 90 % confidence region in the DGL FoV:    0.21790172587131368
+
+Total probability (sum of prob. pixels) for the event to be in the DGH FoV: 0.005046851222622723
+Fraction of 90 % confidence region in the DGH FoV:    0.0
+
+Total probability (sum of prob. pixels) for the event to be in the ES FoV: 7.635113137988231e-09
+Fraction of 90 % confidence region in the ES FoV:    0.0
+
+Total probability for the event to be in the total FoV: 0.11684445620901279
+Fraction of 90 % confidence region in the total FoV:    0.21790172587131368
+
+
+Maximum probability (sum of prob. pixels) for the event to be in the total FoV:    0.7777301030367176 16.666666666666664 hours after the GW event.
+Maximum fraction of 90 % confidence region in the total FoV: 0.6884250726094727 16.666666666666664 hours after the GW event.
+

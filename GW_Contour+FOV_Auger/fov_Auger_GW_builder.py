@@ -17,7 +17,11 @@ if the program is used together with GCNListening.py we should not comment the
 input section, which uses the inputs given by the Popen sentence in this first
 script, to run this one, we should instead comment the Directory section,
 with the aim of running this script over a series of files in a subfolder
-/FITS_files and vice versa.
+/Data_FITS and vice versa.
+
+If we want to run CL_coverage.py for the same Data_FITS after the
+computation of the contours we need to choose (neccesary for GCNListening working 
+mode) GCN_mode = 'yes'.
 '''
 
 
@@ -34,6 +38,12 @@ import os
 from scipy.interpolate import interp1d
 import matplotlib.pyplot as plt
 
+import subprocess
+import time
+
+print(os.getpid())
+
+GCN_Mode = "yes"  # neccesary for GCN working mode
 
 # =============================================================================
 # Plot_fov function
@@ -254,6 +264,9 @@ def plot_fov(datos0, datos1, datos2, datos3, datos4, alt):
 # =============================================================================
 #%% Auger Coordinates
 # =============================================================================
+
+
+
 ################################################################################
 #~ # Geodetic coordinates of observatory (here: Pierre Auger Observatory)
 alt_Auger = 1400.
@@ -286,7 +299,7 @@ observatory = astropy.coordinates.EarthLocation(lat=lat_Auger*u.deg, lon=lon_Aug
 dicGW = {}
 
 # =============================================================================
-#%% Directory (only useful if we want to run over /FITS_files)
+#%% Directory (only useful if we want to run over /Data_FITS)
 # =============================================================================
 
 '''
@@ -297,7 +310,7 @@ dicGW = {}
 
 script_dir = os.getcwd()
 
-path = os.path.join(script_dir, "FITS_files")
+path = os.path.join(script_dir, "Data_FITS")
 
 #text_in_file = "bayestar.fits.gz,0"
 #text_in_file = "GW170814_skymap.fits.gz"
@@ -360,6 +373,7 @@ if(len(sys.argv) < 2) :
 
 else:
     file = sys.argv[1] 
+    GCN_ID = sys.argv[2]
     
 
 prob, header = hp.read_map( file, h=True, verbose=False )
@@ -416,23 +430,18 @@ for j in dicGW:
     Auger = astropy.coordinates.AltAz(obstime=time_GW, location=observatory)
     
     ################################################################################
-    # Calculate field-of-view
-    # Loop over azimuth for a fixed altitude 
-    #(for instance 0 deg. corresponding to 90 deg. zenith angle)  
+    # Calculate field-of-view 
     
     result = []
     
     for alt_deg in alt_deg_array:
-
-        out=[]
-    
-        for az_deg in az_range: 
-            altaz = astropy.coordinates.SkyCoord(alt=alt_deg*u.degree, az=az_deg*u.degree, frame=Auger)
-            radec = altaz.transform_to('icrs')
+               
+        altaz = astropy.coordinates.SkyCoord(alt=alt_deg*u.degree, az=az_range*u.degree, frame=Auger)
+        radec = altaz.transform_to('icrs')
             
-            # we store the declination, the AR and 
+        # we store the declination, the AR and 
             
-            out += [[radec.dec.deg,radec.ra.hour,90.-altaz.alt.deg]] # append
+        out = [[radeci.dec.deg,radeci.ra.hour,90.-altazi.alt.deg] for radeci, altazi in zip(radec, altaz)]
         
         out = np.array(out)
         
@@ -461,28 +470,30 @@ for j in dicGW:
         
         if alt_deg == -5:
            # exec('np.savetxt("GW%s/GW%s_95deg.dat",out)'%(nameGW,nameGW))  # Put output in corresponding GW dir
-            exec('np.savetxt("GW_Auger_fov/%s_95deg.dat",out)'%(nameGW))               # Put output in file in current dir
+            exec('np.savetxt("Data_FOV/%s_95deg.dat",out)'%(nameGW))               # Put output in file in current dir
         if alt_deg == 0:
            # exec('np.savetxt("GW%s/GW%s_90deg.dat",out)'%(nameGW,nameGW))
-            exec('np.savetxt("GW_Auger_fov/%s_90deg.dat",out)'%(nameGW))
+            exec('np.savetxt("Data_FOV/%s_90deg.dat",out)'%(nameGW))
         if alt_deg == 15:
            # exec('np.savetxt("GW%s/GW%s_75deg.dat",out)'%(nameGW,nameGW))
-            exec('np.savetxt("GW_Auger_fov/%s_75deg.dat",out)'%(nameGW))
+            exec('np.savetxt("Data_FOV/%s_75deg.dat",out)'%(nameGW))
         if alt_deg == 30:
            # exec('np.savetxt("GW%s/GW%s_60deg.dat",out)'%(nameGW,nameGW))
-            exec('np.savetxt("GW_Auger_fov/%s_60deg.dat",out)'%(nameGW))
+            exec('np.savetxt("Data_FOV/%s_60deg.dat",out)'%(nameGW))
         if alt_deg == 60:
            # exec('np.savetxt("GW%s/GW%s_60deg.dat",out)'%(nameGW,nameGW))
-            exec('np.savetxt("GW_Auger_fov/%s_30deg.dat",out)'%(nameGW))
+            exec('np.savetxt("Data_FOV/%s_30deg.dat",out)'%(nameGW))
             
         result.append(out)
+        
+  
     
 # =============================================================================
 #%% We read the contour data
 # =============================================================================
 
-    file_dec = open("Contour_Data/decContour"+nameGW+".txt", "r")
-    file_ar  = open("Contour_Data/arContour"+nameGW+".txt", "r")
+    file_dec = open("Data_Contour/decContour"+nameGW+".txt", "r")
+    file_ar  = open("Data_Contour/arContour"+nameGW+".txt", "r")
     
     
     lines_file_dec = file_dec.readlines()
@@ -513,7 +524,7 @@ for j in dicGW:
 # =============================================================================
 #%% Now we start the plot
 # =============================================================================
-    
+
     plt.clf()
     
     plt.rc("font",family="sans-serif",size=10)
@@ -549,7 +560,14 @@ for j in dicGW:
                    fancybox=True,shadow=False,numpoints=1)
     fig.tight_layout()
 
-    plt.savefig("Fov_Contours/fov_Auger_{0}_mollweide.png".format(nameGW))
+    plt.savefig("Plot_FOV_Contours/fov_Auger_{0}_mollweide.png".format(nameGW))
+    
+    
+    if GCN_Mode == "yes":
+        
+        
+        print('Executing CL_coverage.py for', nameGW)
+        subprocess.run([ 'python3', 'CL_coverage.py', file, GCN_ID ])
 
 
 

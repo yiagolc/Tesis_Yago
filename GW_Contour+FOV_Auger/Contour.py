@@ -16,9 +16,9 @@ script, to run this one, we should instead comment the Directory section,
 with the aim of running this script over a series of files in a subfolder
 /FITS_files and vice versa.
 
-If we want to run fov_Auger_GW_builder.py for the same FITS_file after the
-computation of the contours we need to choose run_fov_auger = 'yes', this should
-be enabled for GCN_Listening.
+If we want to run fov_Auger_GW_builder.py for the same Data_FITS after the
+computation of the contours we need to choose (neccesary for GCNListening working 
+mode) GCN_mode = 'yes'
 """
 
 # =============================================================================
@@ -38,14 +38,18 @@ import _pickle as pcl
 import os
 import subprocess
 
+from numba import njit
+
 import time
+
+print(os.getpid())
 
 scriptStartTime = time.time()
 
 DECREASE_RESOLUTION = False
 DECREASE_NSIDE      = 512 # corresponds to 0.0131139632064 deg^2 per pixel ~ (0.115 deg)^2
 
-run_fov_auger = 'yes'
+GCN_Mode = 'yes'
 
 # =============================================================================
 # Functions
@@ -80,6 +84,7 @@ def get_ConfReg_minimum_prob(prob,CL):
     
 # functions for constructing the contours
 
+@njit
 def Ordering(theta,phi):
     
     '''
@@ -95,6 +100,19 @@ def Ordering(theta,phi):
     
     def dis(p1,p2):
         return np.sqrt((p1[0]-p2[0])**2+(p1[1]-p2[1])**2)
+    
+    def zipp(a1,a2):
+        
+        n = len(a1)
+        a = []
+        
+        for i in range(n):
+            
+            a.append([a1[i],a2[i]])
+            
+        return a
+        
+        
     
     n = len(theta)
     
@@ -114,7 +132,7 @@ def Ordering(theta,phi):
     
     while len(theta) > 1:
         
-        distances = np.array([dis([phi_0,theta_0],[phii,thetai]) for phii,thetai in zip(phi,theta)])
+        distances = np.array([dis([phi_0,theta_0],[phii,thetai]) for phii,thetai in zipp(phi,theta)])
         
         minimun = np.min(distances)
         pos_min = np.where(distances == minimun)[0][0]
@@ -152,6 +170,7 @@ After ordering there still exists the posibility for the contour to be separated
 separated into lobes, so we need to build a function that separate this lobes
 '''
 
+@njit
 def Separate_Lobes(theta, phi, n_average):
     
     '''
@@ -167,9 +186,20 @@ def Separate_Lobes(theta, phi, n_average):
     returns lobes_theta and lobes_Phi which are lists of lists that contain the
     dec and ar points of every lobe.
     '''
-    
+
     def dis(p1,p2):
         return np.sqrt((p1[0]-p2[0])**2+(p1[1]-p2[1])**2)
+    
+    def zipp(a1,a2):
+        
+        n = len(a1)
+        a = []
+        
+        for i in range(n):
+            
+            a.append([a1[i],a2[i]])
+            
+        return a
     
     lobes_theta = []
     lobes_phi   = []
@@ -307,18 +337,17 @@ def Separate_Lobes(theta, phi, n_average):
 
 
 # =============================================================================
-#%% Directory (only useful if we want to run over /FITS_files)
+#%% Directory (only useful if we want to run over /data_FITS)
 # =============================================================================
-
 
 '''
 script_dir = os.getcwd()
 
-path = os.path.join(script_dir, "FITS_files")
+path = os.path.join(script_dir, "Data_FITS")
 
-#text_in_file = "bayestar.fits.gz,0"
+text_in_file = "bayestar.fits.gz,0"
 #text_in_file = "GW170814_skymap.fits.gz"
-text_in_file = ".gz"
+#text_in_file = ".gz"
 
 list_path_file = []   
 list_file      = [] 
@@ -331,8 +360,8 @@ for dirpath, dirnames, filenames in os.walk(path):
         list_file.append(filename)
     list_path_file.sort() 
     list_file.sort()  
-
 '''
+
 
 
 
@@ -340,14 +369,16 @@ for dirpath, dirnames, filenames in os.walk(path):
 #%% Input (more useful if we are using it with GCNListening.py) 
 # =============================================================================
 
+
 if(len(sys.argv) < 2) :
     print('You have not include a fits file in the input')
     sys.exit()
 
 else:
     list_path_file = [sys.argv[1]]
+    GCN_ID = sys.argv[2]
 
-   
+  
 # =============================================================================
 # Constant definitions
 # =============================================================================
@@ -446,7 +477,7 @@ for FILENAME in list_path_file:
     print('Calculation Contour for', GWname)
       
     # Initial prob plot
-    
+    '''
     plt.figure(1)
     hp.mollview(
         prob,
@@ -457,6 +488,7 @@ for FILENAME in list_path_file:
     )
     hp.graticule()
     plt.savefig("Plots_Prob/Prob_plot"+GWname+".png")
+    '''
     
     # =============================================================================
     #  Confidence Region of sky localization corresponding to CL
@@ -563,7 +595,7 @@ for FILENAME in list_path_file:
     # =============================================================================
     # Plot of the contour mollweide
     # =============================================================================
-    
+    '''
     plt.clf()
     
     fig = plt.figure(4,figsize=(10,6))
@@ -598,7 +630,7 @@ for FILENAME in list_path_file:
     #plt.scatter(ar_contour - np.pi, dec_contour, s = 0.005)
     
     plt.savefig("Plots_Contour/ContourLobes"+GWname+".png")
-    
+    '''
     
     # =============================================================================
     # Now we save the data
@@ -606,15 +638,15 @@ for FILENAME in list_path_file:
     
     # Delete old data
     
-    file_dec = open("Contour_Data/decContour"+GWname+".txt", "w")
-    file_ar  = open("Contour_Data/arContour"+GWname+".txt", "w")
+    file_dec = open("Data_contour/decContour"+GWname+".txt", "w")
+    file_ar  = open("Data_contour/"+GWname+".txt", "w")
     file_dec.close()
     file_ar.close()
         
     # Introduce new data
     
-    file_dec = open("Contour_Data/decContour"+GWname+".txt", "a")
-    file_ar  = open("Contour_Data/arContour"+GWname+".txt", "a")
+    file_dec = open("Data_contour/decContour"+GWname+".txt", "a")
+    file_ar  = open("Data_contour/arContour"+GWname+".txt", "a")
     
     def write(a, file):
         
@@ -640,10 +672,13 @@ for FILENAME in list_path_file:
     
     
     
-    if run_fov_auger == 'yes':
+    if GCN_Mode == 'yes':
+        
         
         print('Executing fov_Auger_GW_builder.py for', GWname)
-        subprocess.run([ 'python3', 'fov_Auger_GW_builder.py', FILENAME ])
+        process = subprocess.run([ 'python3', 'fov_Auger_GW_builder.py', FILENAME, GCN_ID ])
     
 
+Scriptfinaltime = time.time()
 
+print(Scriptfinaltime-scriptStartTime)

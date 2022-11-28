@@ -39,19 +39,10 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
 import os
 import sys
+import signal
 
+import SendTheMail as SDM
 
-
-sendermail = 'yago.lema@rai.usc.es'
-sender     = 'Yago Lema Capeans'
-    
-receivermails = ['yagolemacapeans@outlook.es', 'yago.lema@rai.usc.es']#, 'jaime.alvarez@usc.es']
-receivers     = ['Yago Lema Capeans', 'Yago Lema Capeans']#, 'Jaime Alvarez Muñiz']
-    
-
-
-fitname = 'FITS_files/GW170814_skymap.fits.gz'
-GWname  = 'GW170814'
 
 
 #%%
@@ -61,59 +52,8 @@ GWname  = 'GW170814'
   # 45.58.43.186   (Atlantic_3)       8099
   # 50.116.49.68   (Linode)      8099                   8096
   # 68.169.57.253  (eApps)            8099        8092  8096
-
-
-# =============================================================================
-# Send email function
-# =============================================================================
-
-def SendTheMail(sender, sendermail, receivers, receivermails, MT, attachments):
-    
-    
-
-    msg = MIMEMultipart()
-    
-    msg['Subject'] = 'Test mail con resultados'
-    
-    msg.attach(MIMEText(MT))
-    
-    
-    msg["From"] = email.utils.formataddr((sender, sendermail))   
-    
-    for att in attachments:
-        
-        if ".png" in att:
-        
-            img = att
-            img_data = open(img, "rb").read()
-            image = MIMEImage(img_data, name = os.path.basename(img))
-            msg.attach(image)
-            
-        if '.txt' in att:
-            
-            txtname = att
-            txt = MIMEText(open(txtname, "r", encoding = 'utf-8').read(), txtname)
-            # con esta linea hacemos que el fichero enviado se llame igual que el que leemos
-            txt.add_header('Content-Disposition', 'attachment', filename=txtname) 
-            msg.attach(txt)
-
-
-    
-    msg["To"] = ', '.join([ email.utils.formataddr((i,j)) for i,j  in zip(receivers, receivermails) ])
-    
-    
-    password = 'r6P#!2!s'
-    
-    with smtplib.SMTP(host='smtp-mail.outlook.com', port=587) as server:
-        
-            server.ehlo()
-            server.starttls()
-            server.ehlo()
-            server.login(sendermail, password)
-            server.send_message(msg)
-            print("Successfully sent email")  
-            
-    
+  
+processDict = {}
 
 # =============================================================================
 # This is the handler for the GCN Listening
@@ -156,6 +96,8 @@ def process_gcn(payload, root):
         MT += 'IDThere: ' + str(IDThere) + '\n'
         if not IDThere:
             
+            processDict.update( {params['GraceID']:[]} )
+            
             MT += 'No superevent with this ID has plots yet.\n'
             
             FILE_DEST = FILE_DEST + '_0'
@@ -183,44 +125,28 @@ def process_gcn(payload, root):
                         
         # Now we run the main scripts for this new fits file
         
-        coverage = subprocess.run([ 'python3', 'CL_coverage.py', f ], capture_output=True, text=True)
+        p = subprocess.Popen([ 'python3', 'Contour.py', f , params['GraceID']])
         
-        a = coverage.stdout.split('\n')
-        
-        
-        GCN_ID = params['GraceID']
-        
-        GWtime = a[0]
-        GWname = a[1]
-        
-        fov_prob_first = round(float(a[2]),2) 
-        t_in  = round(float(a[3])) 
-        t_fin = round(float(a[4]))
-        
-        subprocess.run([ 'python3', 'Contour.py', f ])
+        processDict[params['GraceID']].append(p)
         
         
-        with open('MT_Circular.txt', 'r', encoding='utf-8') as template_file:
-            template_file_content = template_file.read()
-            
-            template_file = Template(template_file_content)
-            
-            MT_Circular = template_file.substitute(GWtime = GWtime, GWname = GWname, fov_prob_first = fov_prob_first, name_trigger = GWname, GCN_ID = GCN_ID, t_in = t_in, t_fin = t_fin )
-            
-        
-        attachments = ["CL_Coverage/GW_confidence_region_coverage" + GWname + ".png", 
-                   "Fov_Contours/fov_Auger_{0}_mollweide.png".format(GWname) ]
-        
-        
-        SendTheMail(sender, sendermail, receivers, receivermails, MT_Circular, attachments)
             
              
     elif params['AlertType'] == 'Retraction':
+        
+        # If appears a retraction we kill all subprocesses (and son subprocesses) and FITS_files
+        if params['GraceID'] in processDict:
+            for pi in processDict[params['GraceID']]:
+            
+                os.killpg(os.getpgid(pi.pid), signal.SIGTERM)
+                pi.kill()
+                pi.communicate()
+                
         for fi in os.listdir('FITS_files'):
             if params['GraceID'] in fi:
             
                 os.remove(fi) 
-                MT += 'Killed all follower process for this GW event as it was retracted.'       
+                MT += 'Killed fits files and processes for this GW event as it was retracted.'       
                 
                 attachments = []
              
@@ -230,7 +156,7 @@ def process_gcn(payload, root):
         attachments = [] 
       
     
-    SendTheMail(sender, sendermail, receivers, receivermails, MT, attachments)
+    SDM.SendTheMail(SDM.sender, SDM.sendermail, SDM.receivers, SDM.receivermails, MT, attachments)
         
 # =============================================================================
 # finally we send the email

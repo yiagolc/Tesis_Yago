@@ -10,7 +10,7 @@ if the program is used together with GCNListening.py we should not comment the
 input section, which uses the inputs given by the Popen sentence in this first
 script, to run this one, we should instead comment the Directory section,
 with the aim of running this script over a series of files in a subfolder
-/FITS_files and vice versa.
+/Data_FITS and vice versa.
 
 """
 
@@ -24,10 +24,16 @@ import numpy as np
 import astropy.coordinates
 import astropy.time
 import astropy.units as u
+import os
 
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 import _pickle as pcl 
+
+import SendTheMail as SDM
+from string import Template
+
+import subprocess
 
 import time
 
@@ -35,23 +41,28 @@ import time
 # Manual parameters to the program
 # =============================================================================
 
+print(os.getpid())
+
+GCN_Mode = "yes"
+
 scriptStartTime = time.time()
 
 PLOTvsTIME = True
 SUFFIX = '.fits.gz'
+PREFIX = "Data_FITS/"
 
 DECREASE_RESOLUTION = False
 DECREASE_NSIDE      = 512 # corresponds to 0.0131139632064 deg^2 per pixel ~ (0.115 deg)^2
 
 #SCAN_RESOLUTION = 1./2.  # deg     # Scan every 2 minutes
-#SCAN_RESOLUTION  = 1.     # deg     # Scan every 4 minutes
-SCAN_RESOLUTION = 15.    # deg     # Scan every hour
+SCAN_RESOLUTION  = 5.     # deg     # Scan every 4 minutes (1)
+#SCAN_RESOLUTION = 15.    # deg     # Scan every hour
 #SCAN_RESOLUTION = 360.  # deg     # 1 point only at the time of the event
 
 '''
 #PREFIX = 'Auger/alerts/'
 SUFFIX = '.fits.gz'
-PREFIX = "FITS_files/"
+PREFIX = "Data_FITS/"
 PICKLE_PREFIX = "Pickle/"
 
 
@@ -123,7 +134,7 @@ colors  =  [ 'g',   'b',   'r' ]
 '''
 script_dir = os.getcwd()
 
-path = os.path.join(script_dir, "FITS_files")
+path = os.path.join(script_dir, "Data_FITS")
 
 #text_in_file = "bayestar.fits.gz,0"
 #text_in_file = "GW170814_skymap.fits.gz"
@@ -155,10 +166,11 @@ if(len(sys.argv) < 2) :
 
 else:
     list_path_file = [sys.argv[1]]
+    GCN_ID = sys.argv[2]
 
 for FILENAME in list_path_file:
 
-    outfile = open(FILENAME[:-len(SUFFIX)]+'_out.txt','w')
+    outfile = open("Data_CL_Coverage/"+FILENAME[len(PREFIX):-len(SUFFIX)]+'_out.txt','w')
     
     
     # =============================================================================
@@ -220,6 +232,7 @@ for FILENAME in list_path_file:
     
     # First obtain the minimum value of prob array above the chosen CL
     ConfReg_minimum_prob = get_ConfReg_minimum_prob(prob,CL)
+    Maximun = get_ConfReg_minimum_prob(prob, 0)
     # Count how many pixels are above the given minimum prob corresponding to the chosen CL
     
     '''
@@ -244,6 +257,12 @@ for FILENAME in list_path_file:
     
     # Convert thetas, phis of all the pixels to RA, Dec.
     radecs = astropy.coordinates.SkyCoord( ra=phi*u.rad, dec= (0.5*np.pi - theta) * u.rad )
+    
+    # get the declination of the maximun value (for the limit flux)
+    
+    prob_dec = [(probi, (0.5*np.pi - thetai)*180/np.pi) for probi,thetai in zip(prob,theta)]
+    
+    declination = [prob_deci[1] for prob_deci in prob_dec if prob_deci[0] == Maximun][0]
     
     
     # =============================================================================
@@ -495,30 +514,70 @@ for FILENAME in list_path_file:
     #print('----------------------FINISH--------------------------------')  GCN LISTENING
     #print('approx. run time of the script', time.time()-scriptStartTime, 's') GCN LISTENING
     
-    plt.savefig("CL_Coverage/GW_confidence_region_coverage" + GWname + ".png")
+    plt.savefig("Plot_CL_Coverage/GW_confidence_region_coverage" + GWname + ".png")
     # plt.savefig("CL_Coverage/GW_confidence_region_coverage" + nameGW + ".pdf")
     
     
-    dt = SCAN_RESOLUTION*60/15
-    
-    prob = np.sum(fov_prob,axis=1)
-    
-    maximo = np.max(prob)
-    
-    posiciones = np.where(prob == maximo)[0]
-    
-    t_in = posiciones[0]*dt/60
-    
-    i = posiciones[0]
-    while prob[i] == maximo :
+    # =============================================================================
+    # maximun times of coincidence calculation
+    # =============================================================================
         
-        i = i + 1
+    if GCN_Mode == "yes":
         
-    t_fin = i*dt/60
+        dt = SCAN_RESOLUTION*60/15
+        
+        prob = np.sum(fov_prob,axis=1)
+        
+        maximo = np.max(prob)
+        
+        posiciones = np.where(prob == maximo)[0]
+        
+        i = posiciones[0]
+        while prob[i] >= 0.5*maximo :
+            
+            i = i + 1
+        
+        t_fin = i*dt/60
+        i = posiciones[0]    
+        while prob[i] >= 0.5*maximo :
+            
+            i = i - 1
+            
+        t_in = i*dt/60
+        
+        print(t_in, '\n', t_fin)
+        print(prob)
+        
+        
+    # =============================================================================
+    # We run the calculation of the flux limit
+    # =============================================================================
     
-    print(t_in, '\n', t_fin)
-    print(prob)
     
+        Flux_limit = subprocess.run([ 'python3', 'Limit_Flux.py', str(declination) ], capture_output=True, text=True)
+                
+        
+        limit = round(float(Flux_limit.stdout),2)
+        
+        print("declinacion del maximo: ",declination, " la cota es:", limit)
+        
+        with open('MT_Circular.txt', 'r', encoding='utf-8') as template_file:
+                template_file_content = template_file.read()
+                
+                template_file = Template(template_file_content)
+                
+                MT_Circular = template_file.substitute(GWtime = GWtime, GWname = GWname, fov_prob_first = round(fov_prob_first,2), name_trigger = GWname, 
+                                                       limit = limit, GCN_ID = GCN_ID, t_in = round(t_in,2), t_fin = round(t_fin,2), time = time.strftime("%a, %d %b %Y %I:%M:%S %p", time.gmtime()) )
+                
+            
+        attachments = ["Plot_CL_Coverage/GW_confidence_region_coverage" + GWname + ".png", 
+                       "Plot_FOV_Contours/fov_Auger_{0}_mollweide.png".format(GWname) ]
+            
+        print("email")
+            
+        SDM.SendTheMail(SDM.sender, SDM.sendermail, SDM.receivers, SDM.receivermails, MT_Circular, attachments)
+        
+        
 
 
 
