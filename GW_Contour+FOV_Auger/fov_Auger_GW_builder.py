@@ -394,7 +394,7 @@ if time_index > -1 :
     
         # We construct the GWname from the date:
     
-        GWname = "GW" + str(GWtime.datetime)[2:4] + str(GWtime.datetime)[5:7] + str(GWtime.datetime)[8:10]
+        GWname = "GW" + str(GWtime.datetime)[2:4] + str(GWtime.datetime)[5:7] + str(GWtime.datetime)[8:10] + "_" + str(GWtime.datetime)[11:13]+str(GWtime.datetime)[14:16]
 else:               
         print('time_index invalid:',time_index,'could not find the MJD from the header file')
         sys.exit()
@@ -492,8 +492,8 @@ for j in dicGW:
 #%% We read the contour data
 # =============================================================================
 
-    file_dec = open("Data_Contour/decContour"+nameGW+".txt", "r")
-    file_ar  = open("Data_Contour/arContour"+nameGW+".txt", "r")
+    file_dec = open("Data_contour/decContour"+nameGW+".txt", "r")
+    file_ar  = open("Data_contour/arContour"+nameGW+".txt", "r")
     
     
     lines_file_dec = file_dec.readlines()
@@ -531,7 +531,7 @@ for j in dicGW:
     
     fig = plt.figure(1, figsize = [9,8])
         
-    ax = fig.add_subplot((111) , projection="mollweide")
+    ax = fig.add_subplot((111), projection="mollweide")
     ax.set_xticklabels(['2h','4h','6h','8h','10h','12h','14h','16h','18h','20h','22h'])
     
     plt.text(0.1, 1.2, nameGW, horizontalalignment='center',

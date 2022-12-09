@@ -49,13 +49,13 @@ scriptStartTime = time.time()
 
 PLOTvsTIME = True
 SUFFIX = '.fits.gz'
-PREFIX = "Data_FITS/"
+PREFIX = os.getcwd() + "/Data_FITS/"
 
 DECREASE_RESOLUTION = False
 DECREASE_NSIDE      = 512 # corresponds to 0.0131139632064 deg^2 per pixel ~ (0.115 deg)^2
 
 #SCAN_RESOLUTION = 1./2.  # deg     # Scan every 2 minutes
-SCAN_RESOLUTION  = 5.     # deg     # Scan every 4 minutes (1)
+SCAN_RESOLUTION  = 1.     # deg     # Scan every 4 minutes (1)
 #SCAN_RESOLUTION = 15.    # deg     # Scan every hour
 #SCAN_RESOLUTION = 360.  # deg     # 1 point only at the time of the event
 
@@ -169,6 +169,13 @@ else:
     GCN_ID = sys.argv[2]
 
 for FILENAME in list_path_file:
+    
+    SUFFIX = '.fits.gz' # to take into account files .fits and .fits.gz
+    if SUFFIX not in FILENAME:
+        SUFFIX = '.fits'
+        
+    print(FILENAME[len(PREFIX):-len(SUFFIX)])
+    print("Data_CL_Coverage/"+FILENAME[len(PREFIX):-len(SUFFIX)]+'_out.txt')
 
     outfile = open("Data_CL_Coverage/"+FILENAME[len(PREFIX):-len(SUFFIX)]+'_out.txt','w')
     
@@ -300,7 +307,7 @@ for FILENAME in list_path_file:
         
         # We construct the GWname from the date:
         
-        GWname = "GW" + str(GWtime.datetime)[2:4] + str(GWtime.datetime)[5:7] + str(GWtime.datetime)[8:10]
+        GWname = "GW" + str(GWtime.datetime)[2:4] + str(GWtime.datetime)[5:7] + str(GWtime.datetime)[8:10] + "_" + str(GWtime.datetime)[11:13]+str(GWtime.datetime)[14:16]
         
         print(GWname)
     else:               
@@ -533,15 +540,21 @@ for FILENAME in list_path_file:
         posiciones = np.where(prob == maximo)[0]
         
         i = posiciones[0]
-        while prob[i] >= 0.5*maximo :
+        while prob[i] >= 0.7*maximo :
             
             i = i + 1
+            if i == (len(prob) - 1):
+                i = 0
         
         t_fin = i*dt/60
         i = posiciones[0]    
-        while prob[i] >= 0.5*maximo :
+        while prob[i] >= 0.7*maximo :
             
             i = i - 1
+            
+            if i == 0:
+                i = len(prob) - 1
+            
             
         t_in = i*dt/60
         
@@ -554,7 +567,7 @@ for FILENAME in list_path_file:
     # =============================================================================
     
     
-        Flux_limit = subprocess.run([ 'python3', 'Limit_Flux.py', str(declination) ], capture_output=True, text=True)
+        Flux_limit = subprocess.run([ 'python3', 'Limit_Flux.py', FILENAME ], capture_output=True, text=True)
                 
         
         limit = round(float(Flux_limit.stdout),2)
@@ -571,7 +584,8 @@ for FILENAME in list_path_file:
                 
             
         attachments = ["Plot_CL_Coverage/GW_confidence_region_coverage" + GWname + ".png", 
-                       "Plot_FOV_Contours/fov_Auger_{0}_mollweide.png".format(GWname) ]
+                       "Plot_FOV_Contours/fov_Auger_{0}_mollweide.png".format(GWname),
+                       "Plots_Flux_limit/" + GWname + ".png"]
             
         print("email")
             

@@ -27,6 +27,9 @@ mode) GCN_mode = 'yes'
 
 import sys
 import healpy as hp
+
+from healpy.newvisufunc import projview, newprojplot
+
 import numpy as np
 import astropy.coordinates
 import astropy.time
@@ -51,6 +54,9 @@ DECREASE_NSIDE      = 512 # corresponds to 0.0131139632064 deg^2 per pixel ~ (0.
 
 GCN_Mode = 'yes'
 
+parameter_lobes = 8
+
+GCN_ID = '12345678'
 # =============================================================================
 # Functions
 # =============================================================================
@@ -303,8 +309,16 @@ def Separate_Lobes(theta, phi, n_average):
                     theta = np.delete(theta,0) 
                     phi   = np.delete(phi,0) 
                     
-                    new_distance = dis([theta[0],phi[0]], [theta[1],phi[1]])
-                    
+                    if len(theta) > 1:
+                        new_distance = dis([theta[0],phi[0]], [theta[1],phi[1]])
+                        
+                    else:
+                       lobe = lobe + 1 ; print("Lobe", lobe) 
+                       
+                       lobes_theta.append([theta[0]])
+                       lobes_phi.append([phi[0]])
+                       
+                       return(lobes_theta, lobes_phi)
                     
                 
                 if new_distance < n_average*average : 
@@ -326,7 +340,8 @@ def Separate_Lobes(theta, phi, n_average):
                 
                 lobes_theta.append([theta[0]])
                 lobes_phi.append([phi[0]])
-        
+                
+                return(lobes_theta, lobes_phi)
         
     " We eliminate possible 1 length lobes (I finally consider this unnecessary) "
     #lobes_theta = [lobesi for lobesi in lobes_theta if len(lobesi) > 1]
@@ -340,12 +355,12 @@ def Separate_Lobes(theta, phi, n_average):
 #%% Directory (only useful if we want to run over /data_FITS)
 # =============================================================================
 
-'''
+
 script_dir = os.getcwd()
 
 path = os.path.join(script_dir, "Data_FITS")
 
-text_in_file = "bayestar.fits.gz,0"
+text_in_file = ".fits"
 #text_in_file = "GW170814_skymap.fits.gz"
 #text_in_file = ".gz"
 
@@ -360,8 +375,8 @@ for dirpath, dirnames, filenames in os.walk(path):
         list_file.append(filename)
     list_path_file.sort() 
     list_file.sort()  
-'''
 
+#list_path_file = [os.path.join(script_dir, "GW170608_skymap.fits.gz")]
 
 
 
@@ -369,7 +384,7 @@ for dirpath, dirnames, filenames in os.walk(path):
 #%% Input (more useful if we are using it with GCNListening.py) 
 # =============================================================================
 
-
+'''
 if(len(sys.argv) < 2) :
     print('You have not include a fits file in the input')
     sys.exit()
@@ -378,7 +393,7 @@ else:
     list_path_file = [sys.argv[1]]
     GCN_ID = sys.argv[2]
 
-  
+'''  
 # =============================================================================
 # Constant definitions
 # =============================================================================
@@ -415,7 +430,7 @@ for FILENAME in list_path_file:
     '''
     
     # prob is the unidimensional array containing the probability in each pixel
-    
+    print(FILENAME)
     prob, header = hp.read_map( FILENAME, h=True, verbose=False )
     
     # Map properties
@@ -469,7 +484,7 @@ for FILENAME in list_path_file:
         
         # We construct the GWname from the date:
         
-        GWname = "GW" + str(GWtime.datetime)[2:4] + str(GWtime.datetime)[5:7] + str(GWtime.datetime)[8:10]
+        GWname = "GW" + str(GWtime.datetime)[2:4] + str(GWtime.datetime)[5:7] + str(GWtime.datetime)[8:10] + "_" + str(GWtime.datetime)[11:13]+str(GWtime.datetime)[14:16]
     else:               
         print('time_index invalid:',time_index,'could not find the MJD from the header file')
         sys.exit()
@@ -479,15 +494,33 @@ for FILENAME in list_path_file:
     # Initial prob plot
     '''
     plt.figure(1)
-    hp.mollview(
-        prob,
-        coord=["C"],
-        title="Histogram equalized Galactic",
-        unit="Probability",
-        norm=None,
+    
+    projview(
+    prob,
+    coord=["C"],
+    graticule=True,
+    graticule_labels=True,
+    unit="probability",
+    xlabel="AR",
+    ylabel="declination",
+    cb_orientation="vertical",
+    latitude_grid_spacing=15,
+    longitude_grid_spacing=45,
+    projection_type="mollweide",
+    title="Mollweide projection",
+    #flip="geo",
+    #phi_convention="clockwise",
+    xtick_label_color='white'
     )
-    hp.graticule()
-    plt.savefig("Plots_Prob/Prob_plot"+GWname+".png")
+    #plt.subplot(projection="mollweide")
+    plt.tight_layout()
+    try:
+        plt.savefig("Plots_Prob/Prob_plot"+GWname+".png")
+    
+    except:
+        os.makedirs("Plots_Prob")
+        plt.savefig("Plots_Prob/Prob_plot"+GWname+".png")
+    
     '''
     
     # =============================================================================
@@ -554,7 +587,7 @@ for FILENAME in list_path_file:
     # =============================================================================
     
     dec_contour_new, ar_contour_new = Ordering(dec_contour, ar_contour)
-    lobes_dec, lobes_ar = Separate_Lobes(dec_contour_new, ar_contour_new, 8)
+    lobes_dec, lobes_ar = Separate_Lobes(dec_contour_new, ar_contour_new, parameter_lobes)
     
     
     # =============================================================================
@@ -600,7 +633,7 @@ for FILENAME in list_path_file:
     
     fig = plt.figure(4,figsize=(10,6))
     
-    ax = fig.add_subplot((111), projection="mollweide")
+    ax = fig.add_subplot((111))# projection="mollweide")
     ax.set_xticklabels(['2h','4h','6h','8h','10h','12h','14h','16h','18h','20h','22h'])
     ax.grid(True)
     
@@ -609,12 +642,7 @@ for FILENAME in list_path_file:
     n = 0
     plt.savefig("Plots_Contour/Contour"+GWname+".png")
     
-    plt.clf()
-    
-    ax = fig.add_subplot((111), projection="mollweide")
-    ax.set_xticklabels(['2h','4h','6h','8h','10h','12h','14h','16h','18h','20h','22h'])
-    ax.grid(True)
-    
+    plt.clf()    
     
     cmap = plt.get_cmap('gnuplot')
     c = [cmap(i) for i in np.linspace(0, 1, len(lobes_ar))]
@@ -629,9 +657,15 @@ for FILENAME in list_path_file:
     
     #plt.scatter(ar_contour - np.pi, dec_contour, s = 0.005)
     
-    plt.savefig("Plots_Contour/ContourLobes"+GWname+".png")
-    '''
     
+    try:
+        plt.savefig("Plots_Contour/ContourLobes"+GWname+".png")
+    
+    except:
+        os.makedirs("Plots_Contour")
+        plt.savefig("Plots_Contour/ContourLobes"+GWname+".png")
+    
+    '''
     # =============================================================================
     # Now we save the data
     # =============================================================================
@@ -639,9 +673,12 @@ for FILENAME in list_path_file:
     # Delete old data
     
     file_dec = open("Data_contour/decContour"+GWname+".txt", "w")
-    file_ar  = open("Data_contour/"+GWname+".txt", "w")
+    file_ar  = open("Data_contour/arContour"+GWname+".txt", "w")
     file_dec.close()
     file_ar.close()
+    
+    #os.remove("Data_contour/decContour"+GWname+".txt")
+    #os.remove("Data_contour/arContour"+GWname+".txt")
         
     # Introduce new data
     
