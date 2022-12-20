@@ -1,24 +1,22 @@
 # -*- coding: utf-8 -*-
 """
-This program has the aim of obtaining the Contours of 90% confidence level from
+This program is intended to obtain the Contours of 90% confidence level from
 a GW event. To do that it only needs the FITS_file of the event. The script 
 reads it, calculates the contour points and then sorts them following the contour.
 Finally separates in different "lobes", because the contour can be splitted in 
 different regions.
 
-It may happen that, for optimal results, the n_average parameter should be 
-different for each event, but even with suboptimal performance the contour plot
-with all lobes and just one color looks approximately correct.
+It may happen that, for optimal results, the parameter_lobes  parameter should be 
+different for each event, but even with suboptimal performance, the contour plot
+with all lobes and black looks approximately correct. In the event of
+bad performance, trick with parameter_lobes.
 
-if the program is used together with GCNListening.py we should not comment the 
-input section, which uses the inputs given by the Popen sentence in this first
-script, to run this one, we should instead comment the Directory section,
-with the aim of running this script over a series of files in a subfolder
-/FITS_files and vice versa.
+The Separate_Lobes function compares the average distance between points in a lobe
+and the distance of a new point with respect to the last one, when following the
+Ordered points array. So parameter_lobes is just the number of times greater than 
+the distance to a new point should be with respect to the average in order to split
+and create a new lobe.
 
-If we want to run fov_Auger_GW_builder.py for the same Data_FITS after the
-computation of the contours we need to choose (neccesary for GCNListening working 
-mode) GCN_mode = 'yes'
 """
 
 # =============================================================================
@@ -52,11 +50,9 @@ scriptStartTime = time.time()
 DECREASE_RESOLUTION = False
 DECREASE_NSIDE      = 512 # corresponds to 0.0131139632064 deg^2 per pixel ~ (0.115 deg)^2
 
-GCN_Mode = 'yes'
+#GCN_Mode = 'yes'
 
-parameter_lobes = 8
 
-GCN_ID = '12345678'
 # =============================================================================
 # Functions
 # =============================================================================
@@ -259,7 +255,7 @@ def Separate_Lobes(theta, phi, n_average):
                  if new_distance < n_average*average : 
                      
                      
-                     lobe = lobe + 1 ; print("Lobe", lobe)
+                     lobe = lobe + 1 ; #print("Lobe", lobe)
                      
                      list_theta.append(theta[0])
                      list_phi.append(phi[0])
@@ -268,14 +264,14 @@ def Separate_Lobes(theta, phi, n_average):
                      lobes_phi.append(list_phi)
                  else : 
                      
-                     lobe = lobe + 1 ; print("Lobe", lobe)
+                     lobe = lobe + 1 ; #print("Lobe", lobe)
                      
                      lobes_theta.append([theta[0]])
                      lobes_phi.append([phi[0]])
             
         else:
             
-            lobe = lobe + 1 ; print("Lobe", lobe)
+            lobe = lobe + 1 ; #print("Lobe", lobe)
             
             theta = np.delete(theta,0) 
             phi   = np.delete(phi,0)
@@ -300,7 +296,7 @@ def Separate_Lobes(theta, phi, n_average):
                 
                 while new_distance >= n_average * average :
                     
-                    lobe = lobe + 1 ; print("Lobe", lobe)
+                    lobe = lobe + 1 ; #print("Lobe", lobe)
                     
                    
                     lobes_theta.append([theta[0]])
@@ -313,7 +309,7 @@ def Separate_Lobes(theta, phi, n_average):
                         new_distance = dis([theta[0],phi[0]], [theta[1],phi[1]])
                         
                     else:
-                       lobe = lobe + 1 ; print("Lobe", lobe) 
+                       lobe = lobe + 1 ; #print("Lobe", lobe) 
                        
                        lobes_theta.append([theta[0]])
                        lobes_phi.append([phi[0]])
@@ -335,65 +331,78 @@ def Separate_Lobes(theta, phi, n_average):
                     
             elif len(theta) == 1:
                 
-                lobe = lobe + 1 ; print("Lobe", lobe)
+                lobe = lobe + 1 ; #print("Lobe", lobe)
                 
                 
                 lobes_theta.append([theta[0]])
                 lobes_phi.append([phi[0]])
                 
-                return(lobes_theta, lobes_phi)
-        
-    " We eliminate possible 1 length lobes (I finally consider this unnecessary) "
-    #lobes_theta = [lobesi for lobesi in lobes_theta if len(lobesi) > 1]
-    #lobes_phi = [lobesi for lobesi in lobes_phi if len(lobesi) > 1]
-        
+                return(lobes_theta, lobes_phi)        
                 
     return(lobes_theta, lobes_phi)
-
-
-# =============================================================================
-#%% Directory (only useful if we want to run over /data_FITS)
-# =============================================================================
-
-
-script_dir = os.getcwd()
-
-path = os.path.join(script_dir, "Data_FITS")
-
-text_in_file = ".fits"
-#text_in_file = "GW170814_skymap.fits.gz"
-#text_in_file = ".gz"
-
-list_path_file = []   
-list_file      = [] 
-
-for dirpath, dirnames, filenames in os.walk(path):
-    for filename in [f for f in filenames if text_in_file in f]:
-        
-        path_with_filename_e=os.path.join(dirpath, filename)
-        list_path_file.append(path_with_filename_e)
-        list_file.append(filename)
-    list_path_file.sort() 
-    list_file.sort()  
-
-#list_path_file = [os.path.join(script_dir, "GW170608_skymap.fits.gz")]
-
 
 
 # =============================================================================
 #%% Input (more useful if we are using it with GCNListening.py) 
 # =============================================================================
 
-'''
+
 if(len(sys.argv) < 2) :
     print('You have not include a fits file in the input')
     sys.exit()
 
 else:
-    list_path_file = [sys.argv[1]]
-    GCN_ID = sys.argv[2]
+    
+    GCN_mode = sys.argv[1]
+    if GCN_mode == 'yes':
+        
+        list_path_file = [sys.argv[2]]
+        GCN_ID = sys.argv[3]
+        
+        Scripts = "FOV_GW CL_Coverage Limit_Flux email" # In GCN mode we want all
+        parameter_lobes = 8
+        SCAN_RESOLUTION = 1.
+        
+    else:
+        
+# =============================================================================
+#%% When GCN_mode = "no" (only useful if we want to run over /data_FITS)
+# =============================================================================
 
-'''  
+        Scripts         = sys.argv[2]
+        parameter_lobes = float(sys.argv[3])
+        SCAN_RESOLUTION = sys.argv[4]
+        
+        script_dir = os.getcwd()
+
+        path = os.path.join(script_dir, "Data_FITS")
+        
+        text_in_file = ".fits"
+        #text_in_file = "GW170814_skymap.fits.gz"
+        #text_in_file = ".gz"
+        
+        list_path_file = []   
+        list_file      = [] 
+        
+        for dirpath, dirnames, filenames in os.walk(path):
+            for filename in [f for f in filenames if text_in_file in f]:
+                
+                path_with_filename_e=os.path.join(dirpath, filename)
+                list_path_file.append(path_with_filename_e)
+                list_file.append(filename)
+            list_path_file.sort() 
+            list_file.sort()  
+
+#list_path_file = [os.path.join(script_dir, "GW170608_skymap.fits.gz")]
+
+if "FOV_GW" not in Scripts.split():
+    
+    for FILENAME in list_path_file:
+        
+         process = subprocess.run([ 'python3', 'CL_coverage.py','no', FILENAME, Scripts, SCAN_RESOLUTION])
+        
+    sys.exit()  # if FOV_GW is not in the Scripts str, we don´t want to run Contour or fov_Auger_builder
+         
 # =============================================================================
 # Constant definitions
 # =============================================================================
@@ -430,8 +439,8 @@ for FILENAME in list_path_file:
     '''
     
     # prob is the unidimensional array containing the probability in each pixel
-    print(FILENAME)
-    prob, header = hp.read_map( FILENAME, h=True, verbose=False )
+    #print(FILENAME)
+    prob, header = hp.read_map( FILENAME, h=True)
     
     # Map properties
     
@@ -708,14 +717,14 @@ for FILENAME in list_path_file:
     #np.savetxt("Pruebas/decContourGW"+GWname+".txt", ar_contour_new )
     
     
+    if GCN_mode == "yes":
     
-    if GCN_Mode == 'yes':
-        
-        
-        print('Executing fov_Auger_GW_builder.py for', GWname)
-        process = subprocess.run([ 'python3', 'fov_Auger_GW_builder.py', FILENAME, GCN_ID ])
+        process = subprocess.run([ 'python3', 'fov_Auger_GW_builder.py', 'yes', FILENAME, GCN_ID, str(SCAN_RESOLUTION) ])
     
+    else:
+        
+        process = subprocess.run([ 'python3', 'fov_Auger_GW_builder.py', 'no', FILENAME, Scripts, str(SCAN_RESOLUTION) ])
 
 Scriptfinaltime = time.time()
 
-print(Scriptfinaltime-scriptStartTime)
+#print(Scriptfinaltime-scriptStartTime)

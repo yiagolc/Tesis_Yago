@@ -13,15 +13,6 @@ as we wish.
 Then the second file is the result of Contour.py, which contains the data of
 the calculated contours.
 
-if the program is used together with GCNListening.py we should not comment the 
-input section, which uses the inputs given by the Popen sentence in this first
-script, to run this one, we should instead comment the Directory section,
-with the aim of running this script over a series of files in a subfolder
-/Data_FITS and vice versa.
-
-If we want to run CL_coverage.py for the same Data_FITS after the
-computation of the contours we need to choose (neccesary for GCNListening working 
-mode) GCN_mode = 'yes'.
 '''
 
 
@@ -43,7 +34,7 @@ import time
 
 print(os.getpid())
 
-GCN_Mode = "yes"  # neccesary for GCN working mode
+#GCN_Mode = "yes"  # neccesary for GCN working mode
 
 # =============================================================================
 # Plot_fov function
@@ -77,7 +68,7 @@ def plot_fov(datos0, datos1, datos2, datos3, datos4, alt):
     
     # Now we will plot the part of the sky that we can see at the moment of the GW
 
-    print('Plotting Auger fov at the moment of merger '+nameGW)
+    print('Plotting Auger fov at the moment of merger '+GWname)
 
     dec1 = datos1[:,0]
     RA1  = datos1[:,1]
@@ -111,7 +102,7 @@ def plot_fov(datos0, datos1, datos2, datos3, datos4, alt):
     hr2angle = 15.         # grados por hora
     deg2rad = np.pi/180.   # radianes por grado
 
-    aux_label = nameGW
+    aux_label = GWname
     
     # Recordamos que la AR fue guardada en horas y además lo habíamos ordenado
     # de menor a mayor, fijando el primer valor a 0 y el ultimo a 24. 
@@ -286,17 +277,17 @@ lon_Auger = -69.249965
 #lat_Auger=-35.218812 
 #lon_Auger=-69.64961
 
-print('---------------------------------------------------------------------------')
-print('Pierre Auger SD coordinates')
-print('lat (deg), long (deg), height (m)')
-print(lat_Auger,lon_Auger,alt_Auger)
+#print('---------------------------------------------------------------------------')
+#print('Pierre Auger SD coordinates')
+#print('lat (deg), long (deg), height (m)')
+#print(lat_Auger,lon_Auger,alt_Auger)
 observatory = astropy.coordinates.EarthLocation(lat=lat_Auger*u.deg, lon=lon_Auger*u.deg, height=alt_Auger*u.m)
 
 
 
-# Dictionary that contains the files that will be analyzed
+# Dictionary that contains the files that will be analyzed (old code)
 
-dicGW = {}
+#dicGW = {}
 
 # =============================================================================
 #%% Directory (only useful if we want to run over /Data_FITS)
@@ -364,7 +355,7 @@ for i in list_path_file:
 
 
 # =============================================================================
-#%% Input (more useful if we are using it with GCNListening.py) 
+#%% Input
 # =============================================================================
 
 if(len(sys.argv) < 2) :
@@ -372,11 +363,22 @@ if(len(sys.argv) < 2) :
     sys.exit()
 
 else:
-    file = sys.argv[1] 
-    GCN_ID = sys.argv[2]
+    GCN_mode = sys.argv[1]
+    file = sys.argv[2] 
+    SCAN_RESOLUTION = sys.argv[4]
     
-
-prob, header = hp.read_map( file, h=True, verbose=False )
+    
+    if GCN_mode == "yes":
+        
+        GCN_ID  = sys.argv[3]
+        Scripts = "FOV_GW CL_Coverage Limit_Flux email"
+    
+    else:
+        
+        Scripts = sys.argv[3]
+        
+        
+prob, header = hp.read_map( file, h=True)
 
 timeindex = -1
 for i in range(len(header)):
@@ -399,7 +401,7 @@ else:
         print('time_index invalid:',time_index,'could not find the MJD from the header file')
         sys.exit()
 
-dicGW[GWname] = GWtime
+#dicGW[GWname] = GWtime
 
 
 # =============================================================================
@@ -414,27 +416,26 @@ az_range = np.arange(0,360+0.5,0.1)
 
 #    print(az_range[-1]) , with this definition this is 360.
 
-# Loop over GW events
-for j in dicGW:
+
     
-    nameGW=j
-    print('Calculation fov Auger for ',nameGW)
-    time_GW = dicGW[nameGW]
+
+print('Calculation fov Auger for ',GWname)
+
     
-    #t_GS = time_GW.sidereal_time('apparent', 'greenwich')
+#t_GS = time_GW.sidereal_time('apparent', 'greenwich')
     
-    #time_GW = astropy.time.Time( time_GW.mjd - t_GS.hour/24, format='mjd' )
+#time_GW = astropy.time.Time( time_GW.mjd - t_GS.hour/24, format='mjd' )
     
     
-    #~ # Alt/az reference frame at observatory, now
-    Auger = astropy.coordinates.AltAz(obstime=time_GW, location=observatory)
+#~ # Alt/az reference frame at observatory, now
+Auger = astropy.coordinates.AltAz(obstime= GWtime, location=observatory)
     
-    ################################################################################
-    # Calculate field-of-view 
+################################################################################
+# Calculate field-of-view 
     
-    result = []
+result = []
     
-    for alt_deg in alt_deg_array:
+for alt_deg in alt_deg_array:
                
         altaz = astropy.coordinates.SkyCoord(alt=alt_deg*u.degree, az=az_range*u.degree, frame=Auger)
         radec = altaz.transform_to('icrs')
@@ -470,19 +471,19 @@ for j in dicGW:
         
         if alt_deg == -5:
            # exec('np.savetxt("GW%s/GW%s_95deg.dat",out)'%(nameGW,nameGW))  # Put output in corresponding GW dir
-            exec('np.savetxt("Data_FOV/%s_95deg.dat",out)'%(nameGW))               # Put output in file in current dir
+            exec('np.savetxt("Data_FOV/%s_95deg.dat",out)'%(GWname))               # Put output in file in current dir
         if alt_deg == 0:
            # exec('np.savetxt("GW%s/GW%s_90deg.dat",out)'%(nameGW,nameGW))
-            exec('np.savetxt("Data_FOV/%s_90deg.dat",out)'%(nameGW))
+            exec('np.savetxt("Data_FOV/%s_90deg.dat",out)'%(GWname))
         if alt_deg == 15:
            # exec('np.savetxt("GW%s/GW%s_75deg.dat",out)'%(nameGW,nameGW))
-            exec('np.savetxt("Data_FOV/%s_75deg.dat",out)'%(nameGW))
+            exec('np.savetxt("Data_FOV/%s_75deg.dat",out)'%(GWname))
         if alt_deg == 30:
            # exec('np.savetxt("GW%s/GW%s_60deg.dat",out)'%(nameGW,nameGW))
-            exec('np.savetxt("Data_FOV/%s_60deg.dat",out)'%(nameGW))
+            exec('np.savetxt("Data_FOV/%s_60deg.dat",out)'%(GWname))
         if alt_deg == 60:
            # exec('np.savetxt("GW%s/GW%s_60deg.dat",out)'%(nameGW,nameGW))
-            exec('np.savetxt("Data_FOV/%s_30deg.dat",out)'%(nameGW))
+            exec('np.savetxt("Data_FOV/%s_30deg.dat",out)'%(GWname))
             
         result.append(out)
         
@@ -492,84 +493,87 @@ for j in dicGW:
 #%% We read the contour data
 # =============================================================================
 
-    file_dec = open("Data_contour/decContour"+nameGW+".txt", "r")
-    file_ar  = open("Data_contour/arContour"+nameGW+".txt", "r")
+file_dec = open("Data_contour/decContour"+GWname+".txt", "r")
+file_ar  = open("Data_contour/arContour"+GWname+".txt", "r")
+
+
+lines_file_dec = file_dec.readlines()
+lines_file_ar  = file_ar.readlines()
+
+file_dec.close()
+file_ar.close()
+
+lobes_dec = []
+lobes_ar  = []
+
+for line_dec, line_ar in zip(lines_file_dec, lines_file_ar):
     
+    line_dec = line_dec.split()
+    line_ar  = line_ar.split()
     
-    lines_file_dec = file_dec.readlines()
-    lines_file_ar  = file_ar.readlines()
+    if len(line_ar) == 0 : continue
+    if len(line_dec) == 0 : continue
     
-    file_dec.close()
-    file_ar.close()
-    
-    lobes_dec = []
-    lobes_ar  = []
-    
-    for line_dec, line_ar in zip(lines_file_dec, lines_file_ar):
-        
-        line_dec = line_dec.split()
-        line_ar  = line_ar.split()
-        
-        if len(line_ar) == 0 : continue
-        if len(line_dec) == 0 : continue
-        
-        if line_dec[0] == "\n" : continue
-        if line_ar[0] == "\n" : continue
-    
-    
-        else:
-            lobes_dec.append(np.array(line_dec, dtype = float))
-            lobes_ar.append(np.array(line_ar, dtype = float))
+    if line_dec[0] == "\n" : continue
+    if line_ar[0] == "\n" : continue
+
+
+    else:
+        lobes_dec.append(np.array(line_dec, dtype = float))
+        lobes_ar.append(np.array(line_ar, dtype = float))
 
 # =============================================================================
 #%% Now we start the plot
 # =============================================================================
 
-    plt.clf()
-    
-    plt.rc("font",family="sans-serif",size=10)
-    
-    fig = plt.figure(1, figsize = [9,8])
-        
-    ax = fig.add_subplot((111), projection="mollweide")
-    ax.set_xticklabels(['2h','4h','6h','8h','10h','12h','14h','16h','18h','20h','22h'])
-    
-    plt.text(0.1, 1.2, nameGW, horizontalalignment='center',
-             verticalalignment='center', transform=plt.gca().transAxes, fontsize=14)
-    
-    # We plot the GW 90% CL Contours 
-    
-    plt.plot(lobes_ar[0]-np.pi, lobes_dec[0], "k-", 
-             label = "$\\sim 90\\%$ CL contour "+nameGW+" (LIGO + VIRGO)")
-    
-    for i in range(len(lobes_dec)): 
-        if i == 0 : continue
-        plt.plot(np.array(lobes_ar[i]) - np.pi, np.array(lobes_dec[i]), "-k")
-        
-    # We plot the Auger fov
-    
-    x = plot_fov(result[4],result[3],result[2],result[1], result[0], alt_deg)
-        
-    handles, labels = plt.gca().get_legend_handles_labels()
+plt.clf()
 
-        
-    plt.gca().grid(linestyle='-.', linewidth=1)
-    
-    
-    plt.legend(handles,labels,loc='upper right', bbox_to_anchor=(1,1.4), ncol=1, 
-                   fancybox=True,shadow=False,numpoints=1)
-    fig.tight_layout()
+plt.rc("font",family="sans-serif",size=10)
 
-    plt.savefig("Plot_FOV_Contours/fov_Auger_{0}_mollweide.png".format(nameGW))
+fig = plt.figure(1, figsize = [9,8])
     
+ax = fig.add_subplot((111), projection="mollweide")
+ax.set_xticklabels(['2h','4h','6h','8h','10h','12h','14h','16h','18h','20h','22h'])
+
+plt.text(0.1, 1.2, GWname, horizontalalignment='center',
+         verticalalignment='center', transform=plt.gca().transAxes, fontsize=14)
+
+# We plot the GW 90% CL Contours 
+
+plt.plot(lobes_ar[0]-np.pi, lobes_dec[0], "k-", 
+         label = "$\\sim 90\\%$ CL contour "+GWname+" (LIGO + VIRGO)")
+
+for i in range(len(lobes_dec)): 
+    if i == 0 : continue
+    plt.plot(np.array(lobes_ar[i]) - np.pi, np.array(lobes_dec[i]), "-k")
     
-    if GCN_Mode == "yes":
-        
-        
-        print('Executing CL_coverage.py for', nameGW)
-        subprocess.run([ 'python3', 'CL_coverage.py', file, GCN_ID ])
+# We plot the Auger fov
+
+x = plot_fov(result[4],result[3],result[2],result[1], result[0], alt_deg)
+    
+handles, labels = plt.gca().get_legend_handles_labels()
+
+    
+plt.gca().grid(linestyle='-.', linewidth=1)
 
 
+plt.legend(handles,labels,loc='upper right', bbox_to_anchor=(1,1.4), ncol=1, 
+               fancybox=True,shadow=False,numpoints=1)
+fig.tight_layout()
+
+plt.savefig("Plot_FOV_Contours/fov_Auger_{0}_mollweide.png".format(GWname))
+
+
+if GCN_mode == "yes":
+    
+    
+    #print('Executing CL_coverage.py for', GWname)
+    subprocess.run([ 'python3', 'CL_coverage.py', 'yes', file, GCN_ID, str(SCAN_RESOLUTION)])
+
+else:
+    
+    #print('Executing CL_coverage.py for', GWname)
+    subprocess.run([ 'python3', 'CL_coverage.py','no', file, Scripts, str(SCAN_RESOLUTION)])
 
 
 
