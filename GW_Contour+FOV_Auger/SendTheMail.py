@@ -8,7 +8,9 @@ Created on Sat Nov 26 12:34:14 2022
 import email.utils
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from email.mime.image import MIMEImage
+from email.mime.image import MIMEImage 
+from email.mime.base  import MIMEBase
+from email import encoders
 import os
 
 import smtplib
@@ -30,7 +32,7 @@ def SendTheMail(sender, sendermail, receivers, receivermails, MT, attachments):
 
     msg = MIMEMultipart()
     
-    msg['Subject'] = 'Test mail con resultados'
+    msg['Subject'] = 'Circular follow-up GW Auger, NO CANDIDATES INFO'
     
     msg.attach(MIMEText(MT))
     
@@ -46,6 +48,16 @@ def SendTheMail(sender, sendermail, receivers, receivermails, MT, attachments):
             image = MIMEImage(img_data, name = os.path.basename(img))
             msg.attach(image)
             
+        if ".pdf" in att:
+        
+            pdfname = att
+            binary_pdf = open(pdfname, 'rb')
+            payload = MIMEBase('application', 'octate-stream', Name=pdfname)
+            payload.set_payload((binary_pdf).read())
+            encoders.encode_base64(payload)
+            payload.add_header('Content-Decomposition', 'attachment', filename=pdfname)
+            msg.attach(payload)
+            
         if '.txt' in att:
             
             txtname = att
@@ -57,9 +69,11 @@ def SendTheMail(sender, sendermail, receivers, receivermails, MT, attachments):
     msg["To"] = ', '.join([ email.utils.formataddr((i,j)) for i,j  in zip(receivers, receivermails) ])
     
     
-    password = 'r6P#!2!s'
+    password = 'r7P#!2!s'
     
-    with smtplib.SMTP(host='smtp-mail.outlook.com', port=587) as server:
+    with smtplib.SMTP('smtp-mail.outlook.com',587, '[127.0.0.1]') as server: 
+        
+            server.connect('smtp-mail.outlook.com',587)
         
             server.ehlo()
             server.starttls()
