@@ -1,0 +1,7 @@
+# E[GeV]   E^2*dF/dE [GeV cm^-2] Single WB GRB from Fig.1 in Abbasi et al. Astrophys. J. 710, 346 (2010) (Single flavour)
+104.0        2.8390798E-6
+2872.9       7.338599E-5
+104618.3     0.00245
+9085176.0    0.00245
+1.1386036E8  1.8659648E-5
+9.2403046E8  2.8158203E-7
