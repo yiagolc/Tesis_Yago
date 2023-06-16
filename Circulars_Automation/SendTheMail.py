@@ -69,7 +69,7 @@ def SendTheMail(sender, sendermail, receivers, receivermails, MT, attachments):
     msg["To"] = ', '.join([ email.utils.formataddr((i,j)) for i,j  in zip(receivers, receivermails) ])
     
     
-    password = 'r7P#!2!s'
+    password = ''
     
     with smtplib.SMTP('smtp-mail.outlook.com',587, '[127.0.0.1]') as server: 
         
